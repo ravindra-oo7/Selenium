@@ -27,7 +27,17 @@ public class Handleframes {
 		driver.switchTo().frame(frame1Element);
 
 		driver.findElement(By.xpath("//input[@name='mytext1']")).sendKeys("Frame1 textbox1");
-		        
+		
+		//First Switch to default content page
+		driver.switchTo().defaultContent();
+		
+		//Frame-02
+		WebElement frame2Element = driver.findElement(By.xpath("//frame[@src='frame_2.html']"));
+		
+		driver.switchTo().frame(frame2Element);
+		driver.findElement(By.xpath("//input[@name='mytext2']")).sendKeys("Frame2 TextBox2 ");
+		
+		
 		
 	}
 
