@@ -3,6 +3,7 @@ package day30;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -37,8 +38,23 @@ public class Handleframes {
 		driver.switchTo().frame(frame2Element);
 		driver.findElement(By.xpath("//input[@name='mytext2']")).sendKeys("Frame2 TextBox2 ");
 		
+		//Frame-03
+		driver.switchTo().defaultContent();
 		
+		WebElement frame3Element = driver.findElement(By.xpath("//frame[@src='frame_3.html']"));
+		driver.switchTo().frame(frame3Element);
+		driver.findElement(By.xpath("//input[@name='mytext3']")).sendKeys("Frame3 textBox3");
 		
+		driver.switchTo().frame(0);//Switching to inner iframe using index
+		
+		//driver.findElement(By.xpath("//div[@id='i8']//div[@class='AB7Lab Id5V1']")).click();
+		
+		//Click using JavascriptExeCuter
+		WebElement rdBttn = driver.findElement(By.xpath("//div[@id='i8']//div[@class='AB7Lab Id5V1']"));
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",rdBttn);
+		
+		driver.switchTo().defaultContent();
 	}
 
 }
