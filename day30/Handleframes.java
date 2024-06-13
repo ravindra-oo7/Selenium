@@ -4,6 +4,7 @@ import java.time.Duration;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Handleframes {
@@ -20,11 +21,11 @@ public class Handleframes {
 		//and we try to locate element which is inside frame which is other webpage
 		
 		//We need to switch our driver to frames
+		//Frame-01
+		WebElement frame1Element = driver.findElement(By.xpath("//frame[@src='frame_1.html']"));
 		
-		
-		
-		
-		
+		driver.switchTo().frame(frame1Element);
+
 		driver.findElement(By.xpath("//input[@name='mytext1']")).sendKeys("Frame1 textbox1");
 		        
 		
