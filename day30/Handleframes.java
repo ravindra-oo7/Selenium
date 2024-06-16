@@ -13,10 +13,15 @@ public class Handleframes {
 	public static void main(String[] args) 
 	{
 		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+		driver.manage()
+				.timeouts()
+				.implicitlyWait(Duration.ofSeconds(10));
 		
 		driver.get("https://ui.vision/demo/webtest/frames/");
-		driver.manage().window().maximize();
+		
+		driver.manage()
+				.window()
+				.maximize();
 
 		//will through error as driver pointing on our web page 
 		//and we try to locate element which is inside frame which is other webpage
@@ -29,10 +34,11 @@ public class Handleframes {
 
 		driver.findElement(By.xpath("//input[@name='mytext1']")).sendKeys("Frame1 textbox1");
 		
+		
+		//Frame-02
 		//First Switch to default content page
 		driver.switchTo().defaultContent();
 		
-		//Frame-02
 		WebElement frame2Element = driver.findElement(By.xpath("//frame[@src='frame_2.html']"));
 		
 		driver.switchTo().frame(frame2Element);

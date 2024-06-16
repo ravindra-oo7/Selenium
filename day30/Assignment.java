@@ -20,9 +20,9 @@ public class Assignment
 		WebElement frame5Elem = driver.findElement(By.xpath("//frame[@src='frame_1.html']"));
 		driver.switchTo().frame(frame5Elem);
 		
-		//driver.findElement(By.xpath("//input[@name='mytext5']")).sendKeys("Frame5 Textbox");
+		driver.findElement(By.partialLinkText("https://a9t9.com")).sendKeys("Frame5 Textbox");
 		
-		driver.findElement(By.xpath("//a[@href='https://a9t9.com']")).click();
-		 
+		//WebElement link =driver.findElement(By.xpath("//a[@href='https://a9t9.com']"));
+		//link.click();
 	}
 }
