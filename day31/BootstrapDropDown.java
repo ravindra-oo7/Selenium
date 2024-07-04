@@ -30,13 +30,19 @@ public class BootstrapDropDown {
 		List<WebElement> options = driver.findElements(By.xpath("//ul//label[@class='checkbox']"));
 		System.out.println("Number Of checkboxes : "+options.size());
 		
-		//Printing all options 
+		//Printing all options and select 
 		for (WebElement webElement : options) 
 		{
-			System.out.println(webElement.getText());
+			String optName = webElement.getText();
+			System.out.println(optName);
+			
+			if( optName.equals("Oracle")||optName.equals("Python"))
+			{
+				webElement.click();
+			}
 			
 		}
-		 
+		 		
 		 
 	}
 
